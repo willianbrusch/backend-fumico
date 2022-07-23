@@ -3,12 +3,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
 import { hashSync } from 'bcrypt';
+import { Todo } from 'src/todo/entities/todo.entity';
 
-@Entity({ name: 'users' })
+@Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -27,6 +29,9 @@ export class User {
 
   @CreateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => Todo, (todo) => todo.user)
+  todos: Todo[];
 
   @BeforeInsert()
   hashPassword() {

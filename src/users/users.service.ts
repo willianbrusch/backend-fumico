@@ -12,7 +12,13 @@ export class UsersService {
     private readonly usersRepository: Repository<User>,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    // const alredyExists = this.usersRepository.findOneBy(createUserDto);
+
+    // if (alredyExists) {
+    //   throw new Error()
+    // }
+
     const user = this.usersRepository.create(createUserDto);
     return await this.usersRepository.save(user);
   }
@@ -20,26 +26,39 @@ export class UsersService {
   async findAll(): Promise<User[]> {
     return await this.usersRepository.find({
       select: ['id', 'name', 'email'],
+      relations: {
+        todos: true,
+      },
     });
   }
 
-  async findOne(email: string): Promise<User> {
+  async findOneById(id: string): Promise<User> {
+    const users = await this.usersRepository.find({
+      select: ['id', 'name', 'email', 'created_at', 'updated_at'],
+      relations: {
+        todos: true,
+      },
+    });
+
+    const user = users.find((user) => id === user.id);
+    return user;
+  }
+
+  async findOneByEmail(email: string): Promise<User> {
     return await this.usersRepository.findOneBy({ email });
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<void> {
     const user = await this.usersRepository.findOneBy({ id });
 
+    user.updated_at = new Date();
+
     this.usersRepository.merge(user, updateUserDto);
-    // user.name = updateUserDto.name;
-    // user.email = updateUserDto.email;
-    // user.password = updateUserDto.password;
-    // user.updated_at = new Date();
 
     await this.usersRepository.save(user);
   }
 
-  async remove(id: string) {
+  async remove(id: string): Promise<void> {
     const user = await this.usersRepository.findOneBy({ id });
     await this.usersRepository.remove(user);
   }

@@ -23,7 +23,7 @@ export class AuthService {
     let user: User;
 
     try {
-      user = await this.usersService.findOne(email);
+      user = await this.usersService.findOneByEmail(email);
     } catch (error) {
       return null;
     }
