@@ -1,4 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -13,14 +18,19 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    // const alredyExists = this.usersRepository.findOneBy(createUserDto);
+    const alreadyExists = await this.usersRepository.findOneBy({
+      email: createUserDto.email,
+    });
 
-    // if (alredyExists) {
-    //   throw new Error()
-    // }
+    if (alreadyExists) {
+      throw new HttpException('User already exists!', HttpStatus.BAD_REQUEST);
+    }
 
     const user = this.usersRepository.create(createUserDto);
-    return await this.usersRepository.save(user);
+    await this.usersRepository.save(user);
+
+    delete user.password;
+    return user;
   }
 
   async findAll(): Promise<User[]> {
