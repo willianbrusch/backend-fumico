@@ -30,7 +30,7 @@ export class UsersController {
 
   @Get(':id')
   @UseGuards(AuthGuard('jwt'))
-  async findOne(@Param('id') id: string) {
+  async findOneById(@Param('id') id: string) {
     return await this.usersService.findOneById(id);
   }
 

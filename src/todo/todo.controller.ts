@@ -31,7 +31,7 @@ export class TodoController {
 
   @Get(':id')
   @UseGuards(AuthGuard('jwt'))
-  async findOne(@Param('id') id: string) {
+  async findOneById(@Param('id') id: string) {
     return await this.todoService.findOneById(id);
   }
 
