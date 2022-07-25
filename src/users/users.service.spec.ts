@@ -50,15 +50,15 @@ describe('UsersService', () => {
         {
           provide: getRepositoryToken(User),
           useValue: {
-            create: jest.fn().mockRejectedValue(mockUser),
-            findAll: jest.fn().mockRejectedValue(mockUsers),
-            findOneById: jest.fn().mockRejectedValue(mockUser),
-            findOneByEmail: jest.fn().mockRejectedValue(mockUser),
-            update: jest.fn().mockRejectedValue(updatedUser),
-
-            find: jest.fn().mockResolvedValue(mockUsers),
-            save: jest.fn().mockResolvedValue(mockUser),
-            findOneBy: jest.fn().mockRejectedValue(mockUser),
+            create: jest.fn().mockReturnValue(mockUser),
+            findAll: jest.fn().mockResolvedValue(mockUsers),
+            findOneByEmail: jest.fn().mockResolvedValue(mockUser),
+            findOneById: jest.fn().mockResolvedValue(mockUser),
+            update: jest.fn(),
+            merge: jest.fn().mockReturnValue(updatedUser),
+            find: jest.fn().mockResolvedValueOnce(mockUsers),
+            save: jest.fn().mockResolvedValue(updatedUser),
+            findOneBy: jest.fn(),
             remove: jest.fn().mockResolvedValue(undefined),
           },
         },
@@ -75,16 +75,18 @@ describe('UsersService', () => {
   });
 
   describe('create', () => {
-    // it('should be able to create an user', async () => {
-    //   const user = {
-    //     id: '1',
-    //     name: 'test 1',
-    //     email: 'test1@email.com',
-    //     password: '12345aA@',
-    //   };
-    //   const result = await userService.create(user);
-    //   expect(result).toEqual(mockUser);
-    // });
+    it('should be able to create an user', async () => {
+      const user = {
+        name: 'test 1',
+        email: 'test1@email.com',
+        password: '12345aA@',
+      };
+
+      const result = await userService.create(user);
+
+      expect(userRepository.save).toHaveBeenCalledTimes(1);
+      expect(result).toEqual(mockUser);
+    });
 
     it('should not be able to create a user', async () => {
       jest.spyOn(userRepository, 'save').mockRejectedValueOnce(new Error());
@@ -111,7 +113,7 @@ describe('UsersService', () => {
     it('should be able to show one user', async () => {
       const result = await userService.findOneById('1');
 
-      expect(result).toEqual(mockUser);
+      expect(result).toEqual(mockUsers[0]);
     });
 
     it('should not be able to show one user and return a error', async () => {
@@ -124,11 +126,13 @@ describe('UsersService', () => {
   });
 
   describe('findOneByEmail', () => {
-    // it('should be able to show one user', async () => {
-    //   const result = await userService.findOneByEmail('test1@email.com');
+    it('should be able to show one user', async () => {
+      jest.spyOn(userRepository, 'findOneBy').mockResolvedValueOnce(mockUser);
 
-    //   expect(result).toEqual(mockUser);
-    // });
+      const result = await userService.findOneByEmail('test1@email.com');
+
+      expect(result).toEqual(mockUser);
+    });
 
     it('should not be able to show one user and return a error', async () => {
       jest
@@ -139,16 +143,21 @@ describe('UsersService', () => {
   });
 
   describe('update', () => {
-    // it('should be able to update one user', async () => {
-    //   const updateDataUser = {
-    //     name: 'Update name',
-    //     email: 'update@email.com',
-    //   };
+    it('should be able to update one user', async () => {
+      jest
+        .spyOn(userRepository, 'findOneBy')
+        .mockResolvedValueOnce(updatedUser);
 
-    //   const result = await userService.update('1', updateDataUser);
+      const updateDataUser = {
+        name: 'Update name',
+        email: 'update@email.com',
+      };
 
-    //   expect(result).resolves.toEqual(updatedUser);
-    // });
+      await userService.update('1', updateDataUser);
+
+      expect(userRepository.save).toHaveBeenCalledTimes(1);
+      expect(userRepository.merge).toHaveBeenCalledTimes(1);
+    });
 
     it('should not be able to update one user and return a error', async () => {
       jest.spyOn(userRepository, 'update').mockRejectedValueOnce(new Error());
