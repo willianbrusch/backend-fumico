@@ -77,7 +77,7 @@ describe('UsersController', () => {
       expect(userService.create).toHaveBeenCalledTimes(1);
     });
 
-    it('should not be able to create a user', async () => {
+    it('should not be able to create an user', async () => {
       jest.spyOn(userService, 'create').mockRejectedValueOnce(new Error());
 
       expect(userController.create).rejects.toThrowError();
