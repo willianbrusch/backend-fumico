@@ -17,7 +17,6 @@ import { TodoModule } from './todo/todo.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      // migrations: [__dirname + '/../database/migrations/*{.ts,.js}']
       logging: true,
       synchronize: true,
       ssl:
