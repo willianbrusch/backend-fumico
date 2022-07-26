@@ -10,7 +10,7 @@ import { TodoModule } from './todo/todo.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: process.env.DB_CONNECTION,
+      type: process.env.DB_CONNECTION || 'postgres',
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
       username: process.env.DB_USERNAME,
