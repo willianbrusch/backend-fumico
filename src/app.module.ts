@@ -17,8 +17,7 @@ import { TodoModule } from './todo/todo.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      //Não user o synchronize em prod
-      synchronize: true,
+      synchronize: false,
     } as TypeOrmModuleOptions),
     UsersModule,
     AuthModule,

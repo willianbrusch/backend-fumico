@@ -1,9 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { User } from '../users/entities/user.entity';
 import { Repository } from 'typeorm';
-import { Todo } from './entities/todo.entity';
+
 import { TodoService } from './todo.service';
+import { User } from '../users/entities/user.entity';
+import { Todo } from './entities/todo.entity';
 
 const mockUser = new User();
 

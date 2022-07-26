@@ -1,8 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { User } from '../users/entities/user.entity';
-import { Todo } from './entities/todo.entity';
+
 import { TodoController } from './todo.controller';
 import { TodoService } from './todo.service';
+import { User } from '../users/entities/user.entity';
+import { Todo } from './entities/todo.entity';
 
 const mockUser = new User();
 
