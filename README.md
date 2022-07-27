@@ -254,7 +254,7 @@ If you need, use this postman collection, acess in this project:
 
 ### GET /todos
 
-> Retornar todos os todos.
+> dRetornar todos os todos.
 
 - Header -> Authorization: Token-admin
 

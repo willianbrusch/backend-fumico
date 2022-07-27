@@ -1,0 +1,1070 @@
+{
+	"info": {
+		"_postman_id": "4b599f38-dce3-4585-969e-8dbba7cf36eb",
+		"name": "Teste Todo fumico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22348038"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Testando T\",\n\t\"email\": \"teste56@email.com\",\n\t\"password\": \"12345aA@\"\n}"
+						},
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "created / 201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/users",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "173"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ad-Y7eegVvVgTNQ+O6u5vbGJsyRKXM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 15:45:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"teste56@email.com\",\n\t\"password\": \"12345aA@\"\n}"
+						},
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/auth/login",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": " / 401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/auth/login",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-bomF7uicjlNRKTgi7lutnoLMPjY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 15:46:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/users/49052cb9-4558-4451-acab-3998b589942e",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"49052cb9-4558-4451-acab-3998b589942e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": " / 401",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/users/49052cb9-4558-4451-acab-3998b589942e",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"49052cb9-4558-4451-acab-3998b589942e"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-hGShxOkieaAVDloBubJVM+h58D8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 15:48:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/users/514bc81e-1fcb-45bf-92e7-fd4c0322c123",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"514bc81e-1fcb-45bf-92e7-fd4c0322c123"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/users/49052cb9-4558-4451-acab-3998b589942e",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"49052cb9-4558-4451-acab-3998b589942e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "376"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"178-GidUCiFkoqF6RS8SmTOb5RkWy8A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 17:10:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/users",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2842"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b1a-UMZwNqme435iJEJaqyAAA0L5yvg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 15:48:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/users/6da525d5-60a7-4410-a0f3-63f6cd5fe068",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"6da525d5-60a7-4410-a0f3-63f6cd5fe068"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/users/9b3e93a4-e6b3-4be1-beb4-04e29dd424f4",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"9b3e93a4-e6b3-4be1-beb4-04e29dd424f4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 15:49:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Todos",
+			"item": [
+				{
+					"name": "Create Todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Estudar\",\n\t\"description\": \"Estudar 2 horas por dia de AWS\",\n\t\"user\": \"514bc81e-1fcb-45bf-92e7-fd4c0322c123\"\n}"
+						},
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": " / 401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/todos",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-hGShxOkieaAVDloBubJVM+h58D8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Jul 2022 22:06:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Update Todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": true\n}"
+						},
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/todos/b7b21d6d-e858-4671-8a68-d5def50b5292",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"b7b21d6d-e858-4671-8a68-d5def50b5292"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/todos/9edc6c2e-6282-43cc-8715-7519033fdf9a",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"todos",
+										"9edc6c2e-6282-43cc-8715-7519033fdf9a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 17:09:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/todos/293a51fd-5c11-45eb-8ff9-9f8d3120e32c",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"293a51fd-5c11-45eb-8ff9-9f8d3120e32c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": " / 500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/todos/9edc6c2e-6282-43cc-8715-7519033fdf9a",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"todos",
+										"9edc6c2e-6282-43cc-8715-7519033fdf9a"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 22:37:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": " / 401",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/todos",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-hGShxOkieaAVDloBubJVM+h58D8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Jul 2022 21:12:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "application/json; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Delete Todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTRiYzgxZS0xZmNiLTQ1YmYtOTJlNy1mZDRjMDMyMmMxMjMiLCJlbWFpbCI6InRlc3RlNTZAZW1haWwuY29tIiwiaWF0IjoxNjU4ODgyNTYyLCJleHAiOjE2NTg5Njg5NjJ9.LkwIsfYCb-QEPNTiQXV6DPXhzElqHqzzxnsdQehf0g0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+							}
+						],
+						"url": {
+							"raw": "https://test-todo-app-fc.herokuapp.com/todos/c8e3a4b4-bd5e-421a-bf5d-fc6bf8b17081",
+							"protocol": "https",
+							"host": [
+								"test-todo-app-fc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"c8e3a4b4-bd5e-421a-bf5d-fc6bf8b17081"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0OTA1MmNiOS00NTU4LTQ0NTEtYWNhYi0zOTk4YjU4OTk0MmUiLCJlbWFpbCI6Impvc2VAZ21haWwuY29tIiwiaWF0IjoxNjU4Njc3NTY5LCJleHAiOjE2NTg3NjM5Njl9.z8-v8k2Ez2RaK-9Z1UTqCv9_8w9J0GBj82h5T59EFko"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/api/todos/20a49813-2758-46f8-867d-57404a80b18e",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"todos",
+										"20a49813-2758-46f8-867d-57404a80b18e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Jul 2022 17:10:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
