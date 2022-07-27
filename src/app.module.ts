@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
-import { TodoModule } from './todo/todo.module';
+import { UsersModule } from './app/users/users.module';
+import { AuthModule } from './app/auth/auth.module';
+import { TodoModule } from './app/todo/todo.module';
 
 @Module({
   imports: [
@@ -17,7 +17,6 @@ import { TodoModule } from './todo/todo.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      logging: true,
       synchronize: true,
       ssl:
         process.env.NODE_ENV === 'production'
