@@ -4,6 +4,10 @@ Use this URL as base to requests:
 
 > `https://test-todo-app-fc.herokuapp.com`
 
+If you need, use this postman collection, acess in this project: 
+
+> src/assets/teste_todo_fumico.postman_collection.json
+
 ## Endpoints:
 
 ## USERS
